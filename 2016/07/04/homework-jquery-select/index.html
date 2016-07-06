@@ -7,19 +7,21 @@
   
   <title>前端作业[1]-50行代码实现简单的jquery选择器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了querySelect。但是我们这里并不借助这个函数。而是尝试使用其他DOM API 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。
-思考首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了CSS Selectors 和 DOM">
+  <meta name="description" content="前言  本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了querySelect。但是我们这里并不借助这个函数。而是尝试使用其他DOM API 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。
+思考  首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了CSS Selectors 和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端作业[1]-50行代码实现简单的jquery选择器">
 <meta property="og:url" content="http://xjcloudy.github.io/2016/07/04/homework-jquery-select/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了querySelect。但是我们这里并不借助这个函数。而是尝试使用其他DOM API 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。
-思考首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了CSS Selectors 和 DOM">
-<meta property="og:updated_time" content="2016-07-05T09:13:12.555Z">
+<meta property="og:description" content="前言  本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了querySelect。但是我们这里并不借助这个函数。而是尝试使用其他DOM API 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。
+思考  首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了CSS Selectors 和">
+<meta property="og:image" content="http://xjcloudy.github.io/2016/07/04/homework-jquery-select/layer.png">
+<meta property="og:updated_time" content="2016-07-06T13:16:42.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端作业[1]-50行代码实现简单的jquery选择器">
-<meta name="twitter:description" content="前言本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了querySelect。但是我们这里并不借助这个函数。而是尝试使用其他DOM API 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。
-思考首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了CSS Selectors 和 DOM">
+<meta name="twitter:description" content="前言  本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了querySelect。但是我们这里并不借助这个函数。而是尝试使用其他DOM API 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。
+思考  首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了CSS Selectors 和">
+<meta name="twitter:image" content="http://xjcloudy.github.io/2016/07/04/homework-jquery-select/layer.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -115,15 +117,16 @@ if (isWX) {
     <div class="article-entry" itemprop="articleBody">
       
         
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了<a href="https://developer.mozilla.org/en-US/Add-ons/Code_snippets/QuerySelector" target="_blank" rel="external">querySelect</a>。但是我们这里并不借助这个函数。<br>而是尝试使用其他<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/JavaScript_technologies_overview#DOM_APIs" target="_blank" rel="external">DOM API</a> 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。</p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了<a href="https://drafts.csswg.org/selectors-3/" target="_blank" rel="external">CSS Selectors</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/JavaScript_technologies_overview#DOM_APIs" target="_blank" rel="external">DOM API</a> 这两件“工具”</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了<a href="https://developer.mozilla.org/en-US/Add-ons/Code_snippets/QuerySelector" target="_blank" rel="external">querySelect</a>。但是我们这里并不借助这个函数。<br>而是尝试使用其他<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/JavaScript_technologies_overview#DOM_APIs" target="_blank" rel="external">DOM API</a> 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。</p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>  首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了<a href="https://drafts.csswg.org/selectors-3/" target="_blank" rel="external">CSS Selectors</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/JavaScript_technologies_overview#DOM_APIs" target="_blank" rel="external">DOM API</a> 这两件“工具”。我们现在要做的就是在他们之间架起一座桥梁,即能通过给定的CSS Selectors 得到对应的DOM结构。<br>  HOW?<br>  我们知道CSS Selectors 是一个字面表达式。我们需要按照CSS Selectors 的规则解析它。来理解它所表达的意思。然后将它翻译成对应的DOM Api的调用。所以这里的关键就是在于对CSS Selectors的<strong>解析(翻译)</strong>。而说到解析字符串，那无疑，<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="external">正则表达式</a>是最好的选择。那么我们要做的就是发挥一下写正则表达式的功力和一点代码技巧。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="1-识别层级关系"><a href="#1-识别层级关系" class="headerlink" title="1.识别层级关系"></a>1.识别层级关系</h3>  <img src="/2016/07/04/homework-jquery-select/layer.png" alt="layer.png" title="">
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://xjcloudy.github.io/2016/07/04/homework-jquery-select/" data-id="ciq8wpszr0001t0ejgxuc5sxk" class="article-share-link">分享到</a>
+        <a data-url="http://xjcloudy.github.io/2016/07/04/homework-jquery-select/" data-id="ciq8wpszt0002zwejqbclmcol" class="article-share-link">分享到</a>
         
       </div>
     </footer>
