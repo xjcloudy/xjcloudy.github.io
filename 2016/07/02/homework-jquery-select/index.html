@@ -5,25 +5,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   
-  <title>前端作业[1]-50行代码实现简单的jquery选择器 | Hexo</title>
+  <title>前端作业[1]-50行代码实现简单的jquery选择器 | xj&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言  本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了querySelect。但是我们这里并不借助这个函数。而是尝试使用其他DOM API 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。
 思考  首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了CSS Selectors 和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端作业[1]-50行代码实现简单的jquery选择器">
-<meta property="og:url" content="http://xjcloudy.github.io/2016/07/04/homework-jquery-select/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="http://xjcloudy.github.io/2016/07/02/homework-jquery-select/index.html">
+<meta property="og:site_name" content="xj's blog">
 <meta property="og:description" content="前言  本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了querySelect。但是我们这里并不借助这个函数。而是尝试使用其他DOM API 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。
 思考  首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了CSS Selectors 和">
-<meta property="og:image" content="http://xjcloudy.github.io/2016/07/04/homework-jquery-select/layer.png">
-<meta property="og:updated_time" content="2016-07-06T13:16:42.197Z">
+<meta property="og:image" content="http://xjcloudy.github.io/2016/07/02/homework-jquery-select/layer.png">
+<meta property="og:updated_time" content="2016-07-18T07:47:48.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端作业[1]-50行代码实现简单的jquery选择器">
 <meta name="twitter:description" content="前言  本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了querySelect。但是我们这里并不借助这个函数。而是尝试使用其他DOM API 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。
 思考  首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了CSS Selectors 和">
-<meta name="twitter:image" content="http://xjcloudy.github.io/2016/07/04/homework-jquery-select/layer.png">
+<meta name="twitter:image" content="http://xjcloudy.github.io/2016/07/02/homework-jquery-select/layer.png">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="xj&#39;s blog" type="application/atom+xml">
   
   
   <link rel="stylesheet" href="/css/style.css">
@@ -33,14 +33,6 @@
   <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
   
-<script type="text/javascript">
-var isWX = /micromessenger/i.test(navigator.userAgent);
-if (isWX) {
-  document.write('<br/><br/><h1 style="text-align: center;font-size:32px;" >╮(╯_╰)╭</h1><br/><br/><h4 style="text-align: center;" >请在浏览器中打开。</h4><br/><h4 style="text-align: center;" >Please open in the browser.</h4>');
-  window.stop ? window.stop() : document.execCommand("Stop");
-}
-</script>
-
 
 </head>
 
@@ -94,8 +86,8 @@ if (isWX) {
     <div class="outer">
       <section id="main"><article id="post-homework-jquery-select" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <h3 href="/2016/07/04/homework-jquery-select/" class="article-date">
-  <time datetime="2016-07-04T11:10:30.868Z" itemprop="datePublished">2016-07-04</time>
+    <h3 href="/2016/07/02/homework-jquery-select/" class="article-date">
+  <time datetime="2016-07-02T06:12:04.000Z" itemprop="datePublished">2016-07-02</time>
 </h3>
     
   </div>
@@ -119,14 +111,15 @@ if (isWX) {
         
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  本文介绍了实现一个简单的jquery元素选择器的思路。因为H5中已经加入了<a href="https://developer.mozilla.org/en-US/Add-ons/Code_snippets/QuerySelector" target="_blank" rel="external">querySelect</a>。但是我们这里并不借助这个函数。<br>而是尝试使用其他<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/JavaScript_technologies_overview#DOM_APIs" target="_blank" rel="external">DOM API</a> 来实现。就像jquery刚开始那样。本文在写作过程中，没有参考jquery的源码和相关文章。如果以前看过，也忘掉了。</p>
 <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>  首先，我们要明白。我们已经是站在了“巨人”的肩上了。W3C已经为我们提供了<a href="https://drafts.csswg.org/selectors-3/" target="_blank" rel="external">CSS Selectors</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/JavaScript_technologies_overview#DOM_APIs" target="_blank" rel="external">DOM API</a> 这两件“工具”。我们现在要做的就是在他们之间架起一座桥梁,即能通过给定的CSS Selectors 得到对应的DOM结构。<br>  HOW?<br>  我们知道CSS Selectors 是一个字面表达式。我们需要按照CSS Selectors 的规则解析它。来理解它所表达的意思。然后将它翻译成对应的DOM Api的调用。所以这里的关键就是在于对CSS Selectors的<strong>解析(翻译)</strong>。而说到解析字符串，那无疑，<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="external">正则表达式</a>是最好的选择。那么我们要做的就是发挥一下写正则表达式的功力和一点代码技巧。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="1-识别层级关系"><a href="#1-识别层级关系" class="headerlink" title="1.识别层级关系"></a>1.识别层级关系</h3>  <img src="/2016/07/04/homework-jquery-select/layer.png" alt="layer.png" title="">
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="1-识别层级关系"><a href="#1-识别层级关系" class="headerlink" title="1.识别层级关系"></a>1.识别层级关系</h3>  <img src="/2016/07/02/homework-jquery-select/layer.png" alt="layer.png" title="">
+<p>  未完待续</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
       
     </div>
     <footer class="article-footer">
       <div class="article-footer-content">
         
-        <a data-url="http://xjcloudy.github.io/2016/07/04/homework-jquery-select/" data-id="ciq8wpszt0002zwejqbclmcol" class="article-share-link">分享到</a>
+        <a data-url="http://xjcloudy.github.io/2016/07/02/homework-jquery-select/" data-id="ciqk8tdu80001vwejfekb9gch" class="article-share-link">分享到</a>
         
       </div>
     </footer>
@@ -135,6 +128,20 @@ if (isWX) {
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2016/07/13/h5-livevideo/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          移动端h5直播实战
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -150,7 +157,11 @@ if (isWX) {
       <ul>
         
           <li>
-            <a href="/2016/07/04/homework-jquery-select/">前端作业[1]-50行代码实现简单的jquery选择器</a>
+            <a href="/2016/07/13/h5-livevideo/">移动端h5直播实战</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/02/homework-jquery-select/">前端作业[1]-50行代码实现简单的jquery选择器</a>
           </li>
         
       </ul>
@@ -159,19 +170,12 @@ if (isWX) {
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"></ul>
-    </div>
-  </div>
-
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
